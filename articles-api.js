@@ -1,7 +1,24 @@
 import axios from "axios";
 
-const baseURL =
-  "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1";
+// axios.defaults.baseURL = "https://api.unsplash.com";
+
+// export const fetchImages = async (query, page) => {
+//   console.log(query);
+//   const response = await axios.get("/search/photos", {
+//     params: {
+//       client_id: "czbUvZULGNNC7UsIcW08Kp2aJWei_H3EibNIqCy4xjg",
+//       query,
+//       page,
+//       hitsPerPage: 12,
+//       orientation: "landscape",
+//     },
+//   });
+//   return response.data.results;
+// };
+
+const baseURL = "https://api.themoviedb.org/3";
+
+// "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1";
 
 const options = {
   headers: {
