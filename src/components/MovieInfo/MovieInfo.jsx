@@ -1,6 +1,6 @@
-import css from "../MoviInfo/MovieInfo.module.css";
+import css from "../MovieInfo/MovieInfo.module.css";
 
-export default function MovieInfo({ movie }) {
+export const MovieInfo = ({ movie }) => {
   const genres = movie.genres;
 
   return (
@@ -35,4 +35,4 @@ export default function MovieInfo({ movie }) {
       </div>
     </div>
   );
-}
+};

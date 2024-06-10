@@ -1,7 +1,7 @@
-import { useEffect, useState, lazy, useRef, Suspense } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { Link, Outlet, useParams, useLocation } from "react-router-dom";
 import { getMovieDetails } from "../../../articles-api";
-import { MovieInfo } from "../../components/MoviInfo/MoviInfo";
+import { MovieInfo } from "../../components/MovieInfo/MovieInfo";
 import { Loader } from "../../components/Loader/Loader";
 import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
 import css from "../MovieDetailsPage/MovieDetailsPage.module.css";
