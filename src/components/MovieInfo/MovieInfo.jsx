@@ -1,38 +1,41 @@
 import css from "../MovieInfo/MovieInfo.module.css";
 
-export const MovieInfo = ({ movie }) => {
+export default function MovieInfo({ movie }) {
   const genres = movie.genres;
-
   return (
-    <div className={css.container}>
-      <div>
-        {movie.poster_path ? (
-          <img
-            className={css.img}
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}
+    <section className={css.section}>
+      {movie.poster_path ? (
+        <img
+          className={css.img}
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}
   `}
-            alt={`poster ${movie.title}`}
-          />
-        ) : (
-          <div>{movie.title}</div>
-        )}
-      </div>
-      <div className={css.infoCont}>
-        <h1 className={css.title}>
-          {movie.original_title} ({movie.release_date})
-        </h1>
-        <p className={css.page}>User Score: {movie.vote_average}</p>
-        <h2 className={css.titleOverview}>Overview</h2>
-        <p className={css.overview}>{movie.overview}</p>
-        <h2 className={css.genres}>Genres</h2>
-        <ul className={css.linksGenre}>
-          {genres.map((genre) => (
-            <li key={genre.id} className={css.link}>
-              {genre.name}
-            </li>
-          ))}
+          alt={`poster ${movie.title}`}
+        />
+      ) : (
+        <div className={css.noposter}>{movie.title}</div>
+      )}
+      <div className={css.details}>
+        <h2 className={css.title}>{movie.title}</h2>
+        {movie.tagline && <p className={css.slug}>{movie.tagline}</p>}
+        <ul className={css.descr}>
+          <li>
+            <h4 className={css.subtitle}>Year</h4>
+            <p className={css.text}>{movie.release_date}</p>
+          </li>
+          <li>
+            <h4 className={css.subtitle}>Overview</h4>
+            <p className={css.text}>{movie.overview}</p>
+          </li>
+          <li>
+            <h4 className={css.subtitle}>Genres</h4>
+            <ul className={css.genres}>
+              {genres.map((genre) => (
+                <li key={genre.id}>{genre.name}</li>
+              ))}
+            </ul>
+          </li>
         </ul>
       </div>
-    </div>
+    </section>
   );
-};
+}

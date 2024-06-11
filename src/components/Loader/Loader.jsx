@@ -1,6 +1,6 @@
 import { MagnifyingGlass } from "react-loader-spinner";
 
-export const Loader = () => {
+export default function Loader() {
   return (
     <b>
       <MagnifyingGlass
@@ -15,4 +15,4 @@ export const Loader = () => {
       />
     </b>
   );
-};
+}

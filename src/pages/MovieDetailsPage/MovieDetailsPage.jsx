@@ -1,12 +1,13 @@
-import { useEffect, useState, useRef, Suspense } from "react";
+import { useEffect, lazy, useState, useRef, Suspense } from "react";
 import { Link, Outlet, useParams, useLocation } from "react-router-dom";
-import { getMovieDetails } from "../../../articles-api";
-import { MovieInfo } from "../../components/MovieInfo/MovieInfo";
-import { Loader } from "../../components/Loader/Loader";
-import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
+import { getMovieDetails } from "../../../movies-api";
+// import { MovieInfo } from "../../components/MovieInfo/MovieInfo";
+import Loader from "../../components/Loader/Loader";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import css from "../MovieDetailsPage/MovieDetailsPage.module.css";
+const MovieInfo = lazy(() => import("../../components/MovieInfo/MovieInfo"));
 
-export const MovieDetailsPage = () => {
+export default function MovieDetailsPage() {
   const { moviesId } = useParams();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -15,7 +16,7 @@ export const MovieDetailsPage = () => {
   const backLink = useRef(location.state ?? "/movies");
 
   useEffect(() => {
-    async function openDetails() {
+    async function getMovieById() {
       try {
         setLoading(true);
         const data = await getMovieDetails(moviesId);
@@ -26,7 +27,7 @@ export const MovieDetailsPage = () => {
       }
     }
 
-    openDetails();
+    getMovieById();
   }, [moviesId]);
 
   return (
@@ -59,4 +60,4 @@ export const MovieDetailsPage = () => {
       </div>
     </div>
   );
-};
+}

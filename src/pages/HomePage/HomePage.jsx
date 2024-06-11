@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import { getTrendingMovies } from "../../../articles-api";
-import { MovieList } from "../../components/MovieList/MovieList";
-import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
-import { Loader } from "../../components/Loader/Loader";
+import { useEffect, useState, lazy } from "react";
+import { getTrendingMovies } from "../../../movies-api";
+// import { MovieList } from "../../components/MovieList/MovieList";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import Loader from "../../components/Loader/Loader";
+const MovieList = lazy(() => import("../../components/MovieList/MovieList"));
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -18,6 +19,8 @@ export default function HomePage() {
         setMovies(data);
       } catch (error) {
         setError(true);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -25,7 +28,7 @@ export default function HomePage() {
   }, []);
   return (
     <div>
-      <h2>Trending today</h2>
+      <h1>Trending today</h1>
       {movies.length > 0 && <MovieList movies={movies} />}
       {loading && <Loader />}
       {error && <ErrorMessage />}
