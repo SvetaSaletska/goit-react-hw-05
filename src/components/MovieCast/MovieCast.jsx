@@ -4,20 +4,21 @@ import { getMovieCredits } from "../../../movies-api";
 import css from "./MovieCast.module.css";
 
 export default function MovieCast() {
-  const { moviesId } = useParams();
+  const { movieId } = useParams();
   const [movieCasts, setMovieCasts] = useState([]);
 
   useEffect(() => {
     const getCast = async () => {
       try {
-        const data = await getMovieCredits(moviesId);
+        const data = await getMovieCredits(movieId);
         setMovieCasts(data);
       } catch (error) {
         console.log(error);
       }
     };
     getCast();
-  }, [moviesId]);
+  }, [movieId]);
+
   return (
     <ul className={css.castList}>
       {movieCasts.length > 0 &&

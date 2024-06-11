@@ -8,8 +8,8 @@ import css from "../MovieDetailsPage/MovieDetailsPage.module.css";
 const MovieInfo = lazy(() => import("../../components/MovieInfo/MovieInfo"));
 
 export default function MovieDetailsPage() {
-  const { moviesId } = useParams();
-  const [movies, setMovies] = useState([]);
+  const { movieId } = useParams();
+  const [movies, setMovies] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const location = useLocation();
@@ -19,7 +19,7 @@ export default function MovieDetailsPage() {
     async function getMovieById() {
       try {
         setLoading(true);
-        const data = await getMovieDetails(moviesId);
+        const data = await getMovieDetails(movieId);
         setLoading(false);
         setMovies(data);
       } catch (error) {
@@ -28,7 +28,7 @@ export default function MovieDetailsPage() {
     }
 
     getMovieById();
-  }, [moviesId]);
+  }, [movieId]);
 
   return (
     <div>

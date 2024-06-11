@@ -4,13 +4,13 @@ import { getMovieReviews } from "../../../movies-api";
 import css from "./MovieReviews.module.css";
 
 export const MovieReviews = () => {
-  const { moviesId } = useParams();
+  const { movieId } = useParams();
   const [reviewsMovie, setReviewsMovie] = useState([]);
 
   useEffect(() => {
     async function getReviews() {
       try {
-        const data = await getMovieReviews(moviesId);
+        const data = await getMovieReviews(movieId);
         setReviewsMovie(data);
       } catch (error) {
         console.log(error);
@@ -18,7 +18,7 @@ export const MovieReviews = () => {
     }
 
     getReviews();
-  }, [moviesId]);
+  }, [movieId]);
   return (
     <div>
       <ul className={css.list}>
