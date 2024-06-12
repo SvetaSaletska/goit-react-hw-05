@@ -32,8 +32,8 @@ export default function MovieCast() {
               }
               alt={cast.name}
             />
-            <h3>{cast.name}</h3>
-            <p>{cast.character}</p>
+            <h3 className={css.name}>{cast.name}</h3>
+            <p className={css.character}>{cast.character}</p>
           </li>
         ))}
     </ul>

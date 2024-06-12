@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getMovieReviews } from "../../../movies-api";
 import css from "./MovieReviews.module.css";
 
-export const MovieReviews = () => {
+export default function MovieReviews() {
   const { movieId } = useParams();
   const [reviewsMovie, setReviewsMovie] = useState([]);
 
@@ -25,8 +25,8 @@ export const MovieReviews = () => {
         {reviewsMovie.length > 0 ? (
           reviewsMovie.map((rev) => (
             <li key={rev.id}>
-              <h3>{rev.author}</h3>
-              <p>{rev.content}</p>
+              <h3 className={css.author}>{rev.author}</h3>
+              <p className={css.content}>{rev.content}</p>
             </li>
           ))
         ) : (
@@ -37,4 +37,4 @@ export const MovieReviews = () => {
       </ul>
     </div>
   );
-};
+}

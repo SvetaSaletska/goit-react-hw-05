@@ -21,6 +21,7 @@ export default function Navigation() {
           </NavLink>
         </li>
       </ul>
+      <hr className={css.line} />
     </nav>
   );
 }

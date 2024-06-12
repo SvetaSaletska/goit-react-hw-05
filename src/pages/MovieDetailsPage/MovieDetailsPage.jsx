@@ -33,15 +33,16 @@ export default function MovieDetailsPage() {
   return (
     <div>
       <div>
-        <p>
+        <p className={css.back_link}>
           <Link to={backLink.current}>Go back</Link>
         </p>
         {loading && <Loader />}
         {error && <ErrorMessage />}
         {movies && <MovieInfo movie={movies} />}
+        <hr className={css.line} />
         <div className={css.container}>
           <h2 className={css.title}>Additional information</h2>
-          <ul>
+          <ul className={css.links}>
             <li>
               <Link className={css.link} to="cast">
                 Cast
@@ -54,6 +55,7 @@ export default function MovieDetailsPage() {
             </li>
           </ul>
         </div>
+        <hr className={css.line} />
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>

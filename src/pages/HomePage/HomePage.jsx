@@ -4,6 +4,7 @@ import { getTrendingMovies } from "../../../movies-api";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loader from "../../components/Loader/Loader";
 const MovieList = lazy(() => import("../../components/MovieList/MovieList"));
+import css from "../HomePage/HomePage.module.css";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -28,7 +29,7 @@ export default function HomePage() {
   }, []);
   return (
     <div>
-      <h1>Trending today</h1>
+      <h1 className={css.title}>Trending today</h1>
       {movies.length > 0 && <MovieList movies={movies} />}
       {loading && <Loader />}
       {error && <ErrorMessage />}

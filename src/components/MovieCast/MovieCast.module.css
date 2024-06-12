@@ -1,10 +1,11 @@
 .cast {
   display: flex;
   flex-direction: column;
-  border: 2px solid grey;
-  width: 300px;
+  border: solid #747bff 1px;
+  width: 150px;
   align-items: center;
-  padding-top: 10px;
+  padding-top: 20px;
+  text-align: center;
 }
 
 .castList {
@@ -14,6 +15,18 @@
 }
 
 .castImage {
-  height: 300px;
-  width: 200px;
+  height: 150px;
+  width: 100px;
+}
+
+.name {
+  margin: 8px;
+  margin-left: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.character {
+  margin: 0;
+  font-size: 14px;
 }
