@@ -1,11 +1,3 @@
-/* .container {
-  display: flex;
-  gap: 50px;
-  box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.3);
-  width: auto;
-  align-items: center;
-} */
-
 .section {
   display: flex;
   text-align: left;
